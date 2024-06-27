@@ -19,6 +19,8 @@ def json_to_avro_binary_hex():
         data = json.loads(data)
         schema_str = data["schema"]
         json_data_str = data["data"]
+        # removes newlines in the json_data_str
+        json_data_str = json_data_str.replace("\n", "")
 
         schema = json.loads(schema_str)
         with io.StringIO(json_data_str) as buf:
